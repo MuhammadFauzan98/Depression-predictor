@@ -8,7 +8,7 @@ These web app include a Dark mode / Light mode toggle , collapsible sidebar inpu
 
 Features : 
 
--> Simple user interface 
+-> Simple user interface built with streamlit
 -> Dark / Light mode toggle 
 -> sidebar inputs 
 -> Random Forest ML model trained by dummy data
