@@ -33,25 +33,65 @@ st.set_page_config(
     page_icon="🧠"
 )
 
-
 dark_mode = st.sidebar.toggle("🌙 Dark Mode", value=False)
 
 if dark_mode:
     st.markdown(
         """
         <style>
+        /* General App Background & Font */
         .stApp, .st-emotion-cache-1r6slb0, .st-emotion-cache-6qob1r { 
             background-color: #121212 !important; 
             color: #ffffff !important; 
         }
+
+        /* Sidebar Background */
         .sidebar .st-emotion-cache-6qob1r, .css-1d391kg {
             background-color: #1e1e1e !important;
+            color: #ffffff !important;
         }
+
+        /* Buttons */
         .stButton>button {
-            background-color: #1565c0;
-            color: white;
+            background-color: #1565c0 !important;
+            color: white !important;
             border-radius: 10px;
             font-weight: bold;
+        }
+
+        /* Tables */
+        .stDataFrame, .stTable {
+            background-color: #1e1e1e !important;
+            color: #ffffff !important;
+        }
+        table, th, td {
+            border: 1px solid #444 !important;
+            color: #ffffff !important;
+        }
+
+        /* Metric text */
+        [data-testid="stMetricValue"], 
+        [data-testid="stMetricLabel"] {
+            color: #ffffff !important;
+        }
+
+        /* Alert boxes (info, error, warning, success) */
+        .stAlert {
+            border-radius: 10px !important;
+            padding: 12px !important;
+            color: #ffffff !important;
+        }
+        .stAlert[data-baseweb="notification"][kind="info"] {
+            background-color: #0d47a1 !important; /* darker blue */
+        }
+        .stAlert[data-baseweb="notification"][kind="error"] {
+            background-color: #b71c1c !important; /* darker red */
+        }
+        .stAlert[data-baseweb="notification"][kind="warning"] {
+            background-color: #e65100 !important; /* dark orange */
+        }
+        .stAlert[data-baseweb="notification"][kind="success"] {
+            background-color: #1b5e20 !important; /* dark green */
         }
         </style>
         """, unsafe_allow_html=True
@@ -60,22 +100,51 @@ else:
     st.markdown(
         """
         <style>
-        .stApp, .st-emotion-cache-1r6slb0, .st-emotion-cache-6qob1r {
-            background-color: #f9f9f9 !important;
-            color: #000000 !important;
+        /* General App Background & Font */
+        .stApp, .st-emotion-cache-1r6slb0, .st-emotion-cache-6qob1r { 
+            background-color: #f9f9f9 !important; 
+            color: #000000 !important; 
         }
+
+        /* Sidebar Background */
         .sidebar .st-emotion-cache-6qob1r, .css-1d391kg {
             background-color: #ffffff !important;
+            color: #000000 !important;
         }
+
+        /* Buttons */
         .stButton>button {
-            background-color: #1e88e5;
-            color: white;
+            background-color: #1e88e5 !important;
+            color: white !important;
             border-radius: 10px;
             font-weight: bold;
+        }
+
+        /* Tables */
+        .stDataFrame, .stTable {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+        }
+        table, th, td {
+            border: 1px solid #ddd !important;
+            color: #000000 !important;
+        }
+
+        /* Metric text */
+        [data-testid="stMetricValue"], 
+        [data-testid="stMetricLabel"] {
+            color: #000000 !important;
+        }
+
+        /* Alert boxes keep default colors in light mode */
+        .stAlert {
+            border-radius: 10px !important;
+            padding: 12px !important;
         }
         </style>
         """, unsafe_allow_html=True
     )
+
 
 with st.sidebar.expander("⚙️ Input Parameters", expanded=True):
     age = st.slider("Age", 18, 80, 35)
@@ -89,6 +158,7 @@ user_data = pd.DataFrame({
     "work_pressure": [work_pressure],
     "social_score": [social_score]
 })
+
 
 
 st.title("🧠 Depression Risk Predictor")
