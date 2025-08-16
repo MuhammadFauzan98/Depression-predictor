@@ -5,9 +5,7 @@ import pickle
 import os
 from sklearn.ensemble import RandomForestClassifier
 
-# ------------------------
-# Dummy Model Preparation
-# ------------------------
+
 data = {
     'age': np.random.randint(20, 70, 100),
     'sleep_hours': np.random.uniform(4.0, 12.0, 100).round(1),
@@ -28,18 +26,14 @@ if not os.path.exists(model_path):
     with open(model_path, "wb") as f:
         pickle.dump(dummy_model, f)
 
-# ------------------------
-# Streamlit Config
-# ------------------------
+
 st.set_page_config(
     page_title="Depression Predictor",
     layout="wide",
     page_icon="🧠"
 )
 
-# ------------------------
-# Theme Toggle (Switch)
-# ------------------------
+
 dark_mode = st.sidebar.toggle("🌙 Dark Mode", value=False)
 
 if dark_mode:
@@ -83,9 +77,6 @@ else:
         """, unsafe_allow_html=True
     )
 
-# ------------------------
-# Sidebar Inputs
-# ------------------------
 with st.sidebar.expander("⚙️ Input Parameters", expanded=True):
     age = st.slider("Age", 18, 80, 35)
     sleep_hours = st.slider("Sleep Hours", 0.0, 12.0, 7.0, 0.5)
@@ -99,9 +90,7 @@ user_data = pd.DataFrame({
     "social_score": [social_score]
 })
 
-# ------------------------
-# Main UI
-# ------------------------
+
 st.title("🧠 Depression Risk Predictor")
 st.write("This tool predicts the risk of depression based on lifestyle and social factors.")
 
