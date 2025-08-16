@@ -8,7 +8,7 @@ These web app include a Dark mode / Light mode toggle , collapsible sidebar inpu
 
 Features : 
 
--> Simple user interface built with streamlit
+-> Simple user interface 
 -> Dark / Light mode toggle 
 -> sidebar inputs 
 -> Random Forest ML model trained by dummy data
@@ -21,4 +21,4 @@ Tech Stack :
 -> Streamlit - UI and dashboard
 -> Scikit-learn - Machine learning model
 -> Panda / Numpy - data handling
--> Pickle - Model serialization 
+-> Pickle - Model serialization
